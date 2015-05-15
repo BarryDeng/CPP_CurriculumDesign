@@ -1,7 +1,10 @@
 #ifndef PASSENGERMAINWINDOW_H
 #define PASSENGERMAINWINDOW_H
-
+#include <string>
 #include <QMainWindow>
+#include <QAction>
+#include "Passenger.h"
+using std::string;
 
 namespace Ui {
 class PassengerMainWindow;
@@ -16,6 +19,8 @@ public:
     ~PassengerMainWindow();
 
 private slots:
+    void showInfo(string);
+
     void on_toolButton_clicked();
 
     void on_pushButton_2_clicked();
@@ -24,6 +29,7 @@ private slots:
 
 private:
     Ui::PassengerMainWindow *ui;
+    Passenger *passenger;
 };
 
 #endif // PASSENGERMAINWINDOW_H

@@ -89,7 +89,7 @@ bool UserManager::validate(string name, string password)
 {
     vector<Passenger>::iterator it;
     for (it = userlist.begin(); it != userlist.end(); it++)
-        if (it->getName() == name)
+        if (it->getName() == name && it->getPassword() == password)
             return true;
     return false;
 }
@@ -127,4 +127,15 @@ UserManager::~UserManager()
         }
     }
     user.close();
+}
+
+Passenger UserManager::findUserByName(string name)
+{
+    vector<Passenger>::iterator it;
+    for (it = userlist.begin(); it != userlist.end(); it++)
+        if (it->getName() == name)
+            return *it;
+    exit(3);
+    Passenger error;
+    return error;
 }

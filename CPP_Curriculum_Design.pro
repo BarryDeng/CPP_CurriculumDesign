@@ -24,7 +24,8 @@ SOURCES += main.cpp\
     passengermainwindow.cpp \
     selectdialog.cpp \
     retrydialog.cpp \
-    managermainwindow.cpp
+    managermainwindow.cpp \
+    signupdialog.cpp
 
 HEADERS  += mainwindow.h \
     FlightManager.h \
@@ -37,11 +38,13 @@ HEADERS  += mainwindow.h \
     passengermainwindow.h \
     selectdialog.h \
     retrydialog.h \
-    managermainwindow.h
+    managermainwindow.h \
+    signupdialog.h
 
 FORMS    += mainwindow.ui \
     signindialog.ui \
     passengermainwindow.ui \
     selectdialog.ui \
     retrydialog.ui \
-    managermainwindow.ui
+    managermainwindow.ui \
+    signupdialog.ui

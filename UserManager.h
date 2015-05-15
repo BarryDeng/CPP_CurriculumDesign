@@ -11,6 +11,7 @@ public:
     UserManager();
     UserManager(const UserManager&);
     ~UserManager();
+    Passenger findUserByName(string);
     bool addUser(string,string);
     bool deleteUser(string);
     bool editUser(string);

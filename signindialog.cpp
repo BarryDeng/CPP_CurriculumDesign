@@ -2,6 +2,8 @@
 #include "ui_signindialog.h"
 #include <QMessageBox>
 #include "UserManager.h"
+#include "passengermainwindow.h"
+#include "managermainwindow.h"
 
 extern UserManager userManager;
 
@@ -10,6 +12,10 @@ SignInDialog::SignInDialog(QWidget *parent) :
     ui(new Ui::SignInDialog)
 {
     ui->setupUi(this);
+    passengerwindow = new PassengerMainWindow(this);
+    managerwindow = new ManagerMainWindow(this);
+    connect(this,SIGNAL(signin(string)),passengerwindow,SLOT(showInfo(string)));
+    connect(this,SIGNAL(signin(string)),managerwindow,SLOT(showInfo(string)));
 }
 
 SignInDialog::~SignInDialog()
@@ -24,7 +30,8 @@ void SignInDialog::on_pushButton_clicked()
         if (userManager.validate(ui->lineEdit->text().toStdString(),ui->lineEdit_2->text().toStdString()))
         {
             QMessageBox::warning(this,"OK","Login completely",QMessageBox::Yes);
-            accept();
+            emit signin(ui->lineEdit->text().toStdString());
+            passengerwindow->show();
         }
         else
         {
@@ -39,7 +46,8 @@ void SignInDialog::on_pushButton_clicked()
         if (ui->lineEdit->text() == "admin" && ui->lineEdit_2->text() == "admin")
         {
             QMessageBox::warning(this,"OK","Login completely",QMessageBox::Yes);
-            accept();
+            emit signin(ui->lineEdit->text().toStdString());
+            managerwindow->show();
         }
         else
         {

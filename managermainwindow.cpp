@@ -45,3 +45,8 @@ ManagerMainWindow::~ManagerMainWindow()
 {
     delete ui;
 }
+
+void ManagerMainWindow::showInfo(string s)
+{
+    ui->Name->setText(QString::fromStdString(s));
+}
