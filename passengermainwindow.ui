@@ -129,9 +129,9 @@
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>630</x>
+      <x>620</x>
       <y>250</y>
-      <width>121</width>
+      <width>151</width>
       <height>51</height>
      </rect>
     </property>
@@ -142,7 +142,7 @@
      </font>
     </property>
     <property name="text">
-     <string>查询</string>
+     <string>按地点查询</string>
     </property>
    </widget>
    <widget class="QLineEdit" name="lineEdit_3">
@@ -183,9 +183,9 @@
    <widget class="QPushButton" name="pushButton_2">
     <property name="geometry">
      <rect>
-      <x>630</x>
+      <x>620</x>
       <y>340</y>
-      <width>121</width>
+      <width>151</width>
       <height>51</height>
      </rect>
     </property>
@@ -196,7 +196,7 @@
      </font>
     </property>
     <property name="text">
-     <string>查询</string>
+     <string>按航班号查询</string>
     </property>
    </widget>
    <widget class="QLabel" name="Name">
@@ -237,6 +237,19 @@
      <string>Money: </string>
     </property>
    </widget>
+   <widget class="QPushButton" name="refresh">
+    <property name="geometry">
+     <rect>
+      <x>690</x>
+      <y>30</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>刷新</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -271,25 +284,40 @@
    <property name="text">
     <string>Edit Personal Info</string>
    </property>
+   <property name="toolTip">
+    <string>查看个人信息</string>
+   </property>
   </action>
   <action name="actionRecharge">
    <property name="text">
     <string>Recharge</string>
+   </property>
+   <property name="toolTip">
+    <string>充值账户</string>
    </property>
   </action>
   <action name="actionExit">
    <property name="text">
     <string>Exit</string>
    </property>
+   <property name="toolTip">
+    <string>退出</string>
+   </property>
   </action>
   <action name="actionAbout">
    <property name="text">
     <string>About</string>
    </property>
+   <property name="toolTip">
+    <string>关于信息</string>
+   </property>
   </action>
   <action name="actionBooked_Flight_List">
    <property name="text">
     <string>Booked Flight List</string>
+   </property>
+   <property name="toolTip">
+    <string>查看过去的订票信息</string>
    </property>
   </action>
  </widget>

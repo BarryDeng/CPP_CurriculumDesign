@@ -31,6 +31,7 @@ void SignInDialog::on_pushButton_clicked()
         {
             QMessageBox::warning(this,"OK","Login completely",QMessageBox::Yes);
             emit signin(ui->lineEdit->text().toStdString());
+            this->accept();
             passengerwindow->show();
         }
         else
@@ -47,6 +48,7 @@ void SignInDialog::on_pushButton_clicked()
         {
             QMessageBox::warning(this,"OK","Login completely",QMessageBox::Yes);
             emit signin(ui->lineEdit->text().toStdString());
+            this->accept();
             managerwindow->show();
         }
         else

@@ -16,6 +16,18 @@ class ManagerMainWindow : public QMainWindow
 private slots:
     void showInfo(string);
 
+    void on_actionAbout_triggered();
+
+    void on_actionExit_O_triggered();
+
+    void on_actionNew_Flight_Info_triggered();
+
+    void on_pushButton_4_clicked();
+
+    void on_pushButton_3_clicked();
+
+    void on_pushButton_clicked();
+
 public:
     explicit ManagerMainWindow(QWidget *parent = 0);
     ~ManagerMainWindow();

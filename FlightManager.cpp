@@ -1,9 +1,10 @@
 #include "FlightManager.h"
 #include <cstdlib>
 #include <fstream>
+#include "FlightInfo.h"
 using namespace std;
 
-FlightManager::FlightManager()
+FlightManager::FlightManager() // 文件读过程放置于构造函数之中，向二进制文件中保存数据
 {
     fstream flight;
     flight.open("flightdb.dat",ios::in | ios::binary);
@@ -45,12 +46,12 @@ FlightManager::FlightManager()
     }
 }
 
-FlightManager::FlightManager(const FlightManager &)
+FlightManager::FlightManager(const FlightManager &) // 考虑到管理类不需要拷贝，故将此函数留空
 {
 
 }
 
-FlightManager::~FlightManager()
+FlightManager::~FlightManager() // 将写入文件的过程放在析构函数之中
 {
     fstream flight("flightdb.dat",ios::out | ios::binary);
     size_t total = flightlist.size();
@@ -65,13 +66,13 @@ FlightManager::~FlightManager()
             flight.write((char*)it->getStartDate().c_str(),10*sizeof(char));
             flight.write((char*)it->getStartTime().c_str(),10*sizeof(char));
             flight.write((char*)it->getEndTime().c_str(), 10*sizeof(char));
-            int t = it->getFirstTicket();
+            int t = it->getFirstPrice();
             flight.write((char*)&t,sizeof(int));
-            t = it->getFirstPrice();
-            flight.write((char*)&t,sizeof(int));
-            t = it->getSecondTicket();
+            t = it->getFirstTicket();
             flight.write((char*)&t,sizeof(int));
             t = it->getSecondPrice();
+            flight.write((char*)&t,sizeof(int));
+            t = it->getSecondTicket();
             flight.write((char*)&t,sizeof(int));
     }
     flight.close();
@@ -83,12 +84,50 @@ bool FlightManager::addFlight(const FlightInfo& t)
     return true;
 }
 
-bool FlightManager::editFlight(string id)
+bool FlightManager::editFlight(string id,string date,const FlightInfo& flight)
 {
-    return true;
+    vector<FlightInfo>::iterator it;
+    for (it = flightlist.begin(); it != flightlist.end(); it++)
+    {
+        if (it->getNo() == id && it->getStartDate() == date)
+        {
+            *it = flight;
+            return true;
+        }
+    }
+    return false;
 }
 
-bool FlightManager::deleteFlight(string id)
+bool FlightManager::deleteFlight(string id,string date)
 {
-    return true;
+    vector<FlightInfo>::iterator it;
+    for (it = flightlist.begin(); it != flightlist.end(); it++)
+    {
+        if (it->getNo() == id && it->getStartDate() == date)
+        {
+            flightlist.erase(it);
+            return true;
+        }
+    }
+    return false;
+}
+
+void FlightManager::findFlightByPlace(string begin, string end, string date,vector<FlightInfo>& temp)
+{
+    vector<FlightInfo>::iterator it;
+    for (it = flightlist.begin(); it != flightlist.end(); it++)
+    {
+        if (it->getStartCity() == begin && it->getEndCity() == end && it->getStartDate() == date)
+            temp.push_back(*it);
+    }
+}
+
+void FlightManager::findFlightByNo(string no, string date,vector<FlightInfo>& temp)
+{
+    vector<FlightInfo>::iterator it;
+    for (it = flightlist.begin(); it != flightlist.end(); it++)
+    {
+        if (it->getNo() == no && it->getStartDate() == date)
+            temp.push_back(*it);
+    }
 }

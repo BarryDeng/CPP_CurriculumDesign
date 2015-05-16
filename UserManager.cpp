@@ -1,10 +1,12 @@
 #include "UserManager.h"
 #include <fstream>
+#include <QAction>
+#include <QString>
 #include "FlightInfo.h"
 #include <cstdlib>
 #include <cstring>
 
-UserManager::UserManager()
+UserManager::UserManager()  // 文件读写放置于构造函数中
 {
     fstream user;
     user.open("userdb.dat",ios::in | ios::binary);
@@ -54,38 +56,45 @@ UserManager::UserManager()
     user.close();
 }
 
-UserManager::UserManager(const UserManager &)
+UserManager::UserManager(const UserManager &) //  避免自动生成的拷贝构造函数
 {
 
 }
 
-bool UserManager::addUser(string name, string password)
+bool UserManager::addUser(string name, string password) //增加新用户
 {
     Passenger temp(name,password);
     userlist.push_back(temp);
     return true;
 }
 
-bool UserManager::deleteUser(string name)
+bool UserManager::deleteUser(string name) // 删除用户
 {
     vector<Passenger>::iterator it;
     for (it = userlist.begin(); it != userlist.end(); it++)
         if (it->getName() == name)
         {
             it = userlist.erase(it);
-            //QMessageBox::warning(this,"成功","删除成功",QMessageBox::Yes);
             return true;
         }
-    //QMessageBox::warning(this,"失败","未找到该用户",QMessageBox::Yes);
     return false;
 }
 
-bool UserManager::editUser(string name)
+bool UserManager::editUser(string name,const Passenger& pgr) // 编辑用户
 {
-    return true;
+    vector<Passenger>::iterator it;
+    for (it = userlist.begin(); it != userlist.end(); ++it)
+    {
+        if (it->getName() == name)
+        {
+            *it = pgr;
+            return true;
+        }
+    }
+    return false;
 }
 
-bool UserManager::validate(string name, string password)
+bool UserManager::validate(string name, string password) // 验证身份信息
 {
     vector<Passenger>::iterator it;
     for (it = userlist.begin(); it != userlist.end(); it++)
@@ -94,7 +103,7 @@ bool UserManager::validate(string name, string password)
     return false;
 }
 
-UserManager::~UserManager()
+UserManager::~UserManager() // 文件读写放置于析构函数中
 {
     fstream user;
     user.open("userdb.dat",ios::out | ios::binary);
@@ -129,13 +138,10 @@ UserManager::~UserManager()
     user.close();
 }
 
-Passenger UserManager::findUserByName(string name)
+void UserManager::findUserByName(string name,Passenger &temp)
 {
     vector<Passenger>::iterator it;
     for (it = userlist.begin(); it != userlist.end(); it++)
         if (it->getName() == name)
-            return *it;
-    exit(3);
-    Passenger error;
-    return error;
+            temp = *it;
 }

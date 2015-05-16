@@ -43,6 +43,45 @@
      <string>Name</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="pushButton">
+    <property name="geometry">
+     <rect>
+      <x>654</x>
+      <y>120</y>
+      <width>91</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>刷新列表</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_3">
+    <property name="geometry">
+     <rect>
+      <x>534</x>
+      <y>370</y>
+      <width>91</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>删除当前记录</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_4">
+    <property name="geometry">
+     <rect>
+      <x>640</x>
+      <y>370</y>
+      <width>91</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>修改当前记录</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -57,7 +96,9 @@
     <property name="title">
      <string>菜单(&amp;F)</string>
     </property>
-    <addaction name="actionEdit_Personal_Info"/>
+    <addaction name="actionNew_Flight_Info"/>
+    <addaction name="separator"/>
+    <addaction name="actionExit_O"/>
    </widget>
    <widget class="QMenu" name="menu_F_2">
     <property name="title">
@@ -77,6 +118,16 @@
   <action name="actionAbout">
    <property name="text">
     <string>About</string>
+   </property>
+  </action>
+  <action name="actionExit_O">
+   <property name="text">
+    <string>Exit(&amp;O)</string>
+   </property>
+  </action>
+  <action name="actionNew_Flight_Info">
+   <property name="text">
+    <string>New Flight Info(&amp;N)</string>
    </property>
   </action>
  </widget>

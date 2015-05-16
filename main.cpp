@@ -9,11 +9,7 @@ FlightManager flightManager;
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    MainWindow mainwindow;
-    //userManager.addUser("123","123");
-    //userManager.addUser("321","123");
-    FlightInfo t("AA0000","2015-07-05");
-    flightManager.addFlight(t);
+    MainWindow mainwindow; // 主窗口类执行
     mainwindow.show();
     return a.exec();
 }

@@ -25,7 +25,11 @@ SOURCES += main.cpp\
     selectdialog.cpp \
     retrydialog.cpp \
     managermainwindow.cpp \
-    signupdialog.cpp
+    signupdialog.cpp \
+    newflightdialog.cpp \
+    rechargedialog.cpp \
+    editinfodialog.cpp \
+    bookedlistdialog.cpp
 
 HEADERS  += mainwindow.h \
     FlightManager.h \
@@ -39,7 +43,11 @@ HEADERS  += mainwindow.h \
     selectdialog.h \
     retrydialog.h \
     managermainwindow.h \
-    signupdialog.h
+    signupdialog.h \
+    newflightdialog.h \
+    rechargedialog.h \
+    editinfodialog.h \
+    bookedlistdialog.h
 
 FORMS    += mainwindow.ui \
     signindialog.ui \
@@ -47,4 +55,8 @@ FORMS    += mainwindow.ui \
     selectdialog.ui \
     retrydialog.ui \
     managermainwindow.ui \
-    signupdialog.ui
+    signupdialog.ui \
+    newflightdialog.ui \
+    rechargedialog.ui \
+    editinfodialog.ui \
+    bookedlistdialog.ui

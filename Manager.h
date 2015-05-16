@@ -4,10 +4,8 @@
 using namespace std;
 class Manager : public User
 {
+    string extra; // 管理人员的备注信息
 public:
-    void editInfo();
-    void addFli();
-    void deleteFli();
-    void changeFli();
+    void editInfo(string,string,string); // 修改信息
 };
 #endif // MANAGER_H_INCLUDED
