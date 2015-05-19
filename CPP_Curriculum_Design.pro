@@ -60,3 +60,6 @@ FORMS    += mainwindow.ui \
     rechargedialog.ui \
     editinfodialog.ui \
     bookedlistdialog.ui
+
+RESOURCES += \
+    image.qrc

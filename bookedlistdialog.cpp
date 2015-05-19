@@ -35,6 +35,7 @@ void BookedListDialog::on_pushButton_clicked() // 根据购买记录信息来列
         if (it->getNo() == no && it->getStartDate() == date)
         {
             passenger->bookInfo.erase(it);
+            userManager.editUser(passenger->getName(),*passenger);
             QMessageBox::information(this,"成功","操作成功",QMessageBox::Ok);
             receiverPassenger(*passenger);
             return;

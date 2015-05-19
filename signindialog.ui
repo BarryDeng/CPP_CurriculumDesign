@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>登录</string>
   </property>
   <widget class="QLabel" name="label">
    <property name="geometry">
@@ -41,6 +41,9 @@
      <height>31</height>
     </rect>
    </property>
+   <property name="placeholderText">
+    <string>在这里输入用户名</string>
+   </property>
   </widget>
   <widget class="QLineEdit" name="lineEdit_2">
    <property name="geometry">
@@ -50,6 +53,12 @@
      <width>151</width>
      <height>31</height>
     </rect>
+   </property>
+   <property name="echoMode">
+    <enum>QLineEdit::Password</enum>
+   </property>
+   <property name="placeholderText">
+    <string>在这里输入密码</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_2">

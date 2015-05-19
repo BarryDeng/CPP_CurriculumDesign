@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>历史购买机票</string>
   </property>
   <widget class="QTableView" name="tableView">
    <property name="geometry">
