@@ -1,9 +1,10 @@
-#ifndef MANAGER_H_INCLUDED
+﻿#ifndef MANAGER_H_INCLUDED
 #define MANAGER_H_INCLUDED
 #include "User.h"
 using namespace std;
 class Manager : public User
 {
+    string phonenumber;
     string extra; // 管理人员的备注信息
 public:
     void editInfo(string,string,string); // 修改信息

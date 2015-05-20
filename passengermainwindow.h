@@ -1,4 +1,4 @@
-#ifndef PASSENGERMAINWINDOW_H
+﻿#ifndef PASSENGERMAINWINDOW_H
 #define PASSENGERMAINWINDOW_H
 #include <QMainWindow>
 #include <QAction>

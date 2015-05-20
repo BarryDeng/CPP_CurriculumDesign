@@ -1,4 +1,4 @@
-#ifndef FLIGHTMANAGER_H_INCLUDED
+﻿#ifndef FLIGHTMANAGER_H_INCLUDED
 #define FLIGHTMANAGER_H_INCLUDED
 #include <FlightInfo.h>
 #include <vector>

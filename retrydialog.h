@@ -1,4 +1,4 @@
-#ifndef RETRYDIALOG_H
+﻿#ifndef RETRYDIALOG_H
 #define RETRYDIALOG_H
 
 #include <QDialog>

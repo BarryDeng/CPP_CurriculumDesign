@@ -1,4 +1,4 @@
-#ifndef BOOKEDLISTDIALOG_H
+﻿#ifndef BOOKEDLISTDIALOG_H
 #define BOOKEDLISTDIALOG_H
 
 #include <QDialog>

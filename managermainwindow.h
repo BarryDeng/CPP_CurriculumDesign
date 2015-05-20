@@ -1,4 +1,4 @@
-#ifndef MANAGERMAINWINDOW_H
+﻿#ifndef MANAGERMAINWINDOW_H
 #define MANAGERMAINWINDOW_H
 
 #include <QMainWindow>

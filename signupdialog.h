@@ -1,4 +1,4 @@
-#ifndef SIGNUPDIALOG_H
+﻿#ifndef SIGNUPDIALOG_H
 #define SIGNUPDIALOG_H
 
 #include <QDialog>

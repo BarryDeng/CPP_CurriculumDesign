@@ -1,4 +1,4 @@
-#ifndef SELECTDIALOG_H
+﻿#ifndef SELECTDIALOG_H
 #define SELECTDIALOG_H
 #include <QString>
 #include <QDialog>

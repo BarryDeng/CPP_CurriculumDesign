@@ -1,4 +1,4 @@
-#ifndef PASSENGER_H_INCLUDED
+﻿#ifndef PASSENGER_H_INCLUDED
 #define PASSENGER_H_INCLUDED
 #include "User.h"
 #include "FlightInfo.h"

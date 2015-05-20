@@ -1,4 +1,4 @@
-#ifndef RECHARGEDIALOG_H
+﻿#ifndef RECHARGEDIALOG_H
 #define RECHARGEDIALOG_H
 
 #include <QDialog>

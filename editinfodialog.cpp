@@ -2,6 +2,7 @@
 #include "ui_editinfodialog.h"
 #include <QMessageBox>
 #include "UserManager.h"
+#include <QCryptographicHash>
 
 extern UserManager userManager;
 
@@ -22,7 +23,11 @@ void EditInfoDialog::on_pushButton_clicked() // 保存身份修改的信息
     string password = ui->lineEdit_3->text().toStdString();
     string creditid = ui->lineEdit_2->text().toStdString();
     string creditpassword = ui->lineEdit->text().toStdString();
-    passenger->editInfo(password,creditid,creditpassword);
+    QString pwdmd5;
+    QByteArray bb;
+    bb = QCryptographicHash::hash ( QString::fromStdString(creditpassword).toLatin1(), QCryptographicHash::Md5 );
+    pwdmd5.append(bb.toHex());
+    passenger->editInfo(password,creditid,pwdmd5.toStdString());
     if(userManager.editUser(passenger->getName(),*passenger))
         QMessageBox::warning(this,"成功","操作成功",QMessageBox::Ok);
     else

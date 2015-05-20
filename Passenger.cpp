@@ -3,8 +3,9 @@
 #include "Passenger.h"
 #include "FlightInfo.h"
 #include <QAction>
+#include <QCryptographicHash>
 
-Passenger::Passenger(string name, string password) : User(name,name)
+Passenger::Passenger(string name, string password) : User(name,password)
 {
 
 }
@@ -39,7 +40,11 @@ void Passenger::setId(string s)
 
 bool Passenger::validateCreditCard(string id, string password)
 {
-    if (id == CreditCardId && password == CreditCardPassword)
+    QString pwdmd5;
+    QByteArray bb;
+    bb = QCryptographicHash::hash ( QString::fromStdString(password).toLatin1(), QCryptographicHash::Md5 );
+    pwdmd5 = bb.toHex();
+    if (id == CreditCardId && CreditCardPassword == pwdmd5.toStdString())
         return true;
     else
         return false;
@@ -58,7 +63,11 @@ void Passenger::setCreditCardId(string s)
 
 void Passenger::setCreditCardPassword(string s)
 {
-    CreditCardPassword = s;
+    QString pwdmd5;
+    QByteArray bb;
+    bb = QCryptographicHash::hash ( QString::fromStdString(s).toLatin1(), QCryptographicHash::Md5 );
+    pwdmd5 = bb.toHex();
+    CreditCardPassword = pwdmd5.toStdString();
 }
 
 void Passenger::setCreditCardMoney(int d)
@@ -68,7 +77,13 @@ void Passenger::setCreditCardMoney(int d)
 
 void Passenger::editInfo(string password,string creditid,string creditpassword)
 {
-    Password = password;
+    QString pwdmd5,pwdmd5_2;
+    QByteArray bb;
+    bb = QCryptographicHash::hash ( QString::fromStdString(password).toLatin1(), QCryptographicHash::Md5 );
+    pwdmd5 = bb.toHex();
+    bb = QCryptographicHash::hash ( QString::fromStdString(creditpassword).toLatin1(), QCryptographicHash::Md5 );
+    pwdmd5_2 = bb.toHex();
+    Password = pwdmd5.toStdString();
     CreditCardId = creditid;
-    CreditCardPassword = creditpassword;
+    CreditCardPassword = pwdmd5_2.toStdString();
 }

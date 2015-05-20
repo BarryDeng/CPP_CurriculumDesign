@@ -1,4 +1,4 @@
-#ifndef FLIGHTINFO_H_INCLUDED
+﻿#ifndef FLIGHTINFO_H_INCLUDED
 #define FLIGHTINFO_H_INCLUDED
 #include <string>
 using std::string;

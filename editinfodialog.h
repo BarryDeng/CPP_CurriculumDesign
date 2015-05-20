@@ -1,4 +1,4 @@
-#ifndef EDITINFODIALOG_H
+﻿#ifndef EDITINFODIALOG_H
 #define EDITINFODIALOG_H
 
 #include <QDialog>

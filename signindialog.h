@@ -1,4 +1,4 @@
-#ifndef SIGNINDIALOG_H
+﻿#ifndef SIGNINDIALOG_H
 #define SIGNINDIALOG_H
 
 #include <QDialog>

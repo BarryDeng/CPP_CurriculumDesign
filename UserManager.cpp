@@ -5,6 +5,7 @@
 #include "FlightInfo.h"
 #include <cstdlib>
 #include <cstring>
+#include <QCryptographicHash>
 
 UserManager::UserManager()  // 文件读写放置于构造函数中
 {
@@ -30,11 +31,11 @@ UserManager::UserManager()  // 文件读写放置于构造函数中
             temp.setId(c_buff);
             user.read((char*)c_buff,10*sizeof(char));
             temp.setName(c_buff);
-            user.read((char*)c_buff,20*sizeof(char));
+            user.read((char*)c_buff,32*sizeof(char));
             temp.setPassword(c_buff);
             user.read((char*)c_buff,20*sizeof(char));
             temp.setCreditCardId(c_buff);
-            user.read((char*)c_buff,20*sizeof(char));
+            user.read((char*)c_buff,32*sizeof(char));
             temp.setCreditCardPassword(c_buff);
             user.read((char*)c_buff,sizeof(int));
             temp.setCreditCardMoney(atoi(c_buff));
@@ -62,7 +63,10 @@ UserManager::UserManager(const UserManager &) //  避免自动生成的拷贝构
 }
 
 bool UserManager::addUser(string name, string password) //增加新用户
-{
+{ 
+    QByteArray bb;
+    bb = QCryptographicHash::hash (QString::fromStdString(password).toLatin1() , QCryptographicHash::Md5 );
+    password = bb.toHex().toStdString();
     Passenger temp(name,password);
     userlist.push_back(temp);
     return true;
@@ -96,10 +100,16 @@ bool UserManager::editUser(string name,const Passenger& pgr) // 编辑用户
 
 bool UserManager::validate(string name, string password) // 验证身份信息
 {
+    QString pwdmd5;
+    QByteArray bb;
+    bb = QCryptographicHash::hash ( QString::fromStdString(password).toLatin1(), QCryptographicHash::Md5 );
+    pwdmd5 = bb.toHex();
     vector<Passenger>::iterator it;
     for (it = userlist.begin(); it != userlist.end(); it++)
-        if (it->getName() == name && it->getPassword() == password)
+    {
+        if (it->getName() == name && it->getPassword() == pwdmd5.toStdString())
             return true;
+    }
     return false;
 }
 
@@ -119,11 +129,11 @@ UserManager::~UserManager() // 文件读写放置于析构函数中
         strcpy_s(t,it->getName().c_str());
         user.write((char*)t,10*sizeof(char));
         strcpy_s(t,it->getPassword().c_str());
-        user.write((char*)t,20*sizeof(char));
+        user.write((char*)t,32*sizeof(char));
         strcpy_s(t,it->getCreditCardId().c_str());
         user.write((char*)t,20*sizeof(char));
         strcpy_s(t,it->getCreditCardPassword().c_str());
-        user.write((char*)t,20*sizeof(char));
+        user.write((char*)t,32*sizeof(char));
         int m = it->getCreditCardMoney();
         user.write((char*)&m,sizeof(int));
         size_t n = it->bookInfo.size();

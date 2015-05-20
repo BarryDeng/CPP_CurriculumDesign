@@ -1,4 +1,4 @@
-#ifndef NEWFLIGHTDIALOG_H
+﻿#ifndef NEWFLIGHTDIALOG_H
 #define NEWFLIGHTDIALOG_H
 
 #include <QDialog>

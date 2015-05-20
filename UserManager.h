@@ -1,4 +1,4 @@
-#ifndef USERMANAGER_H_INCLUDED
+﻿#ifndef USERMANAGER_H_INCLUDED
 #define USERMANAGER_H_INCLUDED
 #include <vector>
 #include "Passenger.h"

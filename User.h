@@ -1,4 +1,4 @@
-#ifndef USER_H_INCLUDED
+﻿#ifndef USER_H_INCLUDED
 #define USER_H_INCLUDED
 using std::string;
 class User
